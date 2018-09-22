@@ -53,6 +53,7 @@ export class StopwatchComponent implements OnInit {
     reset = function() {
       this.startTime = new Date();
       this.totalElapsedMs = this.elapsedMs = 0;
+      this.headerTab.emit(this.getElapsedMsFormated());
     };
     
     turn = function() {

@@ -10,22 +10,16 @@
     </ul>
   </div>
 
-<div [class.is-invisible]="tab != '01'" class="tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter " >
-  <div class="tile is-parent is-6">
-    <article class="tile is-child box">
-      <div class="content">
-          <app-stopwatch (headerTab)="time01 = $event" > Cronometro #1 </app-stopwatch>
-      </div>
-    </article>
+<div class="columns is-mobile is-centered">
+  <div [class.is-invisible]="tab != '01'" class="column position-fixed has-background-grey-lighter">
+    <div class="content">
+      <app-stopwatch (headerTab)="time01 = $event" > Cronometro #1 </app-stopwatch>
   </div>
-</div>
+  </div>
 
-<div [class.is-invisible]="tab != '02'" class="tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter" >
-  <div class="tile is-parent is-6">
-    <article class="tile is-child box">
-      <div class="content">
-          <app-stopwatch (headerTab)="time02 = $event" > Cronometro #2 </app-stopwatch>
-      </div>
-    </article>
+  <div [class.is-invisible]="tab != '02'" class="column position-fixed has-background-grey-lighter">
+    <div class="content">
+      <app-stopwatch (headerTab)="time02 = $event" > Cronometro #2 </app-stopwatch>
+  </div>
   </div>
 </div>

@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n}"
+module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n    overflow-y: auto;\n    height: 100%;\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tabs is-toggle is-fullwidth is-large\">\n    <ul>\n      <li [class.is-active]=\"tab == '01'\" (click)=\"tab = '01'\" ><a><strong>Chron 01 -</strong> {{ time01 }}</a></li>\n      <li [class.is-active]=\"tab == '02'\" (click)=\"tab = '02'\" ><a><strong>Chron 02 -</strong> {{ time02 }}</a></li>\n    </ul>\n  </div>\n\n<div [class.is-invisible]=\"tab != '01'\" class=\"tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter \" >\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch (headerTab)=\"time01 = $event\" > Cronometro #1 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n</div>\n\n<div [class.is-invisible]=\"tab != '02'\" class=\"tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter\" >\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch (headerTab)=\"time02 = $event\" > Cronometro #2 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tabs is-toggle is-fullwidth is-large\">\n    <ul>\n      <li [class.is-active]=\"tab == '01'\" (click)=\"tab = '01'\" ><a><strong>Chron 01 -</strong> {{ time01 }}</a></li>\n      <li [class.is-active]=\"tab == '02'\" (click)=\"tab = '02'\" ><a><strong>Chron 02 -</strong> {{ time02 }}</a></li>\n    </ul>\n  </div>\n\n<div class=\"columns is-mobile is-centered\">\n  <div [class.is-invisible]=\"tab != '01'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time01 = $event\" > Cronometro #1 </app-stopwatch>\n  </div>\n  </div>\n\n  <div [class.is-invisible]=\"tab != '02'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time02 = $event\" > Cronometro #2 </app-stopwatch>\n  </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -217,6 +217,7 @@ var StopwatchComponent = /** @class */ (function () {
         this.reset = function () {
             this.startTime = new Date();
             this.totalElapsedMs = this.elapsedMs = 0;
+            this.headerTab.emit(this.getElapsedMsFormated());
         };
         this.turn = function () {
             this.timesTurn.push(this.getElapsedMsFormated());
