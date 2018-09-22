@@ -34,6 +34,12 @@ export class StopwatchComponent implements OnInit {
         }, 31);
       }
     };
+
+    clearAll = function() {
+      this.stop();
+      this.reset();
+      this.timesTurn = [];
+    };
     
     stop = function() {
       if (this.timerPromise) {
