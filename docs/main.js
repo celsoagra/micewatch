@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n    overflow-y: auto;\n    height: 100%;\n}"
+module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n    overflow-y: auto;\n    height: 80%;\n}"
 
 /***/ }),
 
