@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-stopwatch',
@@ -13,14 +13,13 @@ export class StopwatchComponent implements OnInit {
   startTime;
   timerPromise;
   timesTurn = [];
+  @Output() headerTab = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-    
-    
     getTurns = function() {
       return this.timesTurn;
     }
@@ -31,6 +30,7 @@ export class StopwatchComponent implements OnInit {
         this.timerPromise = setInterval(() => {
           var now = new Date();
           this.elapsedMs = now.getTime() - this.startTime.getTime();
+          this.headerTab.emit(this.getElapsedMsFormated());
         }, 31);
       }
     };
@@ -81,9 +81,11 @@ export class StopwatchComponent implements OnInit {
       seconds = this.completeWithZeros(seconds+"", 2);
       minutes = this.completeWithZeros(minutes+"", 2);
       hours = this.completeWithZeros(hours+"", 2);
-      
+
       return hours + ":" + minutes + ":" + seconds + " '" + milisec;
   };
+
+  
 
   completeWithZeros = function(numberToZero:string, size:number) {
     let timeWithZero = numberToZero;

@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tile is-ancestor\">\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch> Cronometro #1 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch> Cronometro #2 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tabs is-toggle is-fullwidth is-large\">\n    <ul>\n      <li [class.is-active]=\"tab == '01'\" (click)=\"tab = '01'\" ><a><strong>Chron 01 -</strong> {{ time01 }}</a></li>\n      <li [class.is-active]=\"tab == '02'\" (click)=\"tab = '02'\" ><a><strong>Chron 02 -</strong> {{ time02 }}</a></li>\n    </ul>\n  </div>\n\n<div [class.is-invisible]=\"tab != '01'\" class=\"tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter \" >\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch (headerTab)=\"time01 = $event\" > Cronometro #1 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n</div>\n\n<div [class.is-invisible]=\"tab != '02'\" class=\"tile is-ancestor position-fixed is-fullwidth has-background-grey-lighter\" >\n  <div class=\"tile is-parent is-6\">\n    <article class=\"tile is-child box\">\n      <div class=\"content\">\n          <app-stopwatch (headerTab)=\"time02 = $event\" > Cronometro #2 </app-stopwatch>\n      </div>\n    </article>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -62,17 +62,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'micewatch - Cronometro para teste de resistência';
+        this.tab = '01';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.tab = '01';
+        this.time01 = '00:00:00 \'000';
+        this.time02 = '00:00:00 \'000';
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -146,7 +156,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>\n    <ng-content></ng-content>\n</h2>\n\n<div class=\"content\">\n<div><strong>Tempo: </strong>{{getElapsedMsFormated() }}</div>\n</div>\n<div class=\"content\">\n  <div class=\"card\">\n    <div *ngFor=\"let opt of getTurns()\" class=\"card-content\">\n      <p class=\"title\">\n          {{opt}}\n      </p>\n    </div>\n  </div>\n</div>\n<div class=\"content\">\n  <div class=\"buttons\">\n    <a class=\"button is-large is-link is-rounded \" (click)=\"start()\">Iniciar</a>\n    <a class=\"button is-large is-warning is-rounded\" (click)=\"turn()\">Volta</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"stop()\">Parar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"reset()\">Zerar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"clearAll()\">Limpar Resultados</a>\n  </div>\n</div>"
+module.exports = "<h2>\n    <ng-content></ng-content>\n</h2>\n\n<div class=\"content\">\n<div><strong>Tempo: </strong>{{getElapsedMsFormated() }}</div>\n</div>\n<div class=\"content\">\n  <div class=\"buttons\">\n    <a class=\"button is-large is-link is-rounded \" (click)=\"start()\">Iniciar</a>\n    <a class=\"button is-large is-warning is-rounded\" (click)=\"turn()\">Volta</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"stop()\">Parar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"reset()\">Zerar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"clearAll()\">Limpar Resultados</a>\n  </div>\n</div>\n<div class=\"content\">\n  <div class=\"card\">\n    <div *ngFor=\"let opt of getTurns(); index as i\" [attr.data-index]=\"i\" class=\"card-content\">\n      <p class=\"title\">\n        #{{i}} - {{opt}}\n      </p>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -176,6 +186,7 @@ var StopwatchComponent = /** @class */ (function () {
         this.totalElapsedMs = 0;
         this.elapsedMs = 0;
         this.timesTurn = [];
+        this.headerTab = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.getTurns = function () {
             return this.timesTurn;
         };
@@ -186,6 +197,7 @@ var StopwatchComponent = /** @class */ (function () {
                 this.timerPromise = setInterval(function () {
                     var now = new Date();
                     _this.elapsedMs = now.getTime() - _this.startTime.getTime();
+                    _this.headerTab.emit(_this.getElapsedMsFormated());
                 }, 31);
             }
         };
@@ -237,6 +249,10 @@ var StopwatchComponent = /** @class */ (function () {
     }
     StopwatchComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], StopwatchComponent.prototype, "headerTab", void 0);
     StopwatchComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-stopwatch',
