@@ -1,0 +1,24 @@
+<h2>
+    <ng-content></ng-content>
+</h2>
+
+<div class="content">
+<div><strong>Tempo: </strong>{{getElapsedMsFormated() }}</div>
+</div>
+<div class="content">
+  <div class="card">
+    <div *ngFor="let opt of getTurns()" class="card-content">
+      <p class="title">
+          {{opt}}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="buttons">
+    <a class="button is-large is-link is-rounded " (click)="start()">Iniciar</a>
+    <a class="button is-large is-warning is-rounded" (click)="turn()">Volta</a>
+    <a class="button is-large is-danger is-rounded" (click)="stop()">Parar</a>
+    <a class="button is-large is-rounded" (click)="reset()">Zerar</a>
+  </div>
+</div>
