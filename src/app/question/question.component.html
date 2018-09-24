@@ -1,0 +1,56 @@
+<h2>
+    <ng-content></ng-content>
+</h2>
+
+<div class="content">
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter ">
+          <a class="button is-large is-link is-rounded ">
+              <fa-icon  [icon]="['fas', 'stopwatch']" size="2x"></fa-icon>
+          </a>
+      </div>
+      <div class="column">
+        <p class="is-size-3	" >Iniciar tempo</p>
+      </div>
+    </div>
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter">
+          <a class="button is-large is-primary is-rounded" (click)="stop()">
+              <fa-icon  [icon]="['fas', 'pause']" size="2x"></fa-icon>  
+          </a>
+      </div>
+      <div class="column">
+        <p class="is-size-3	" >Parar tempo</p>
+      </div>
+    </div>
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter">
+          <a class="button is-large is-warning is-rounded" (click)="turn()">
+            <fa-icon  [icon]="['fas', 'history']" size="2x"></fa-icon>  <strong>+1</strong>
+          </a>
+      </div>
+      <div class="column">
+        <p class="is-size-3" >Marcar Volta e Iniciar novo Cronômetro</p>
+      </div>
+    </div>
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter">
+          <a class="button is-large is-danger is-rounded" (click)="reset()">
+            '000
+          </a>
+      </div>
+      <div class="column">
+        <p class="is-size-3	" >Zerar o Tempo</p>
+      </div>
+    </div>
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter">
+          <a class="button is-large is-danger is-rounded" (click)="clearAll()">
+              <fa-icon  [icon]="['far', 'trash-alt']" size="2x"></fa-icon>
+          </a>
+      </div>
+      <div class="column">
+        <p class="is-size-3	" >Zerar o Tempo e limpar tempos marcados</p>
+      </div>
+    </div>
+</div>

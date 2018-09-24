@@ -41,7 +41,7 @@ module.exports = ".position-fixed {\n    position:fixed;\n    width: 100%;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tabs is-toggle is-fullwidth is-large\">\n    <ul>\n      <li [class.is-active]=\"tab == '01'\" (click)=\"tab = '01'\" ><a><strong>Chron 01 -</strong> {{ time01 }}</a></li>\n      <li [class.is-active]=\"tab == '02'\" (click)=\"tab = '02'\" ><a><strong>Chron 02 -</strong> {{ time02 }}</a></li>\n    </ul>\n  </div>\n\n<div class=\"columns is-mobile is-centered\">\n  <div [class.is-invisible]=\"tab != '01'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time01 = $event\" > Cronometro #1 </app-stopwatch>\n  </div>\n  </div>\n\n  <div [class.is-invisible]=\"tab != '02'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time02 = $event\" > Cronometro #2 </app-stopwatch>\n  </div>\n  </div>\n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1> {{ title }}! </h1>\n</div>\n\n<div class=\"tabs is-toggle is-fullwidth is-large\">\n    <ul>\n      <li [class.is-active]=\"tab == '01'\" (click)=\"tab = '01'\" ><a><strong><fa-icon  [icon]=\"['fas', 'stopwatch']\" size=\"md\"></fa-icon>01 -</strong> {{ time01 }}</a></li>\n      <li [class.is-active]=\"tab == '02'\" (click)=\"tab = '02'\" ><a><strong><fa-icon  [icon]=\"['fas', 'stopwatch']\" size=\"md\"></fa-icon>02 -</strong> {{ time02 }}</a></li>\n      <li [class.is-active]=\"tab == '03'\" (click)=\"tab = '03'\" ><a><strong><fa-icon  [icon]=\"['fas', 'question']\" size=\"md\"></fa-icon></strong></a></li>\n    </ul>\n  </div>\n\n<div class=\"columns is-mobile is-centered\">\n  <div [class.is-invisible]=\"tab != '01'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time01 = $event\" > Cronometro #1 </app-stopwatch>\n  </div>\n  </div>\n\n  <div [class.is-invisible]=\"tab != '02'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n      <app-stopwatch (headerTab)=\"time02 = $event\" > Cronometro #2 </app-stopwatch>\n    </div>\n  </div>\n  \n  <div [class.is-invisible]=\"tab != '03'\" class=\"column position-fixed has-background-grey-lighter\">\n    <div class=\"content\">\n        <app-question > Tutorial </app-question>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -105,6 +105,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _stopwatch_stopwatch_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./stopwatch/stopwatch.component */ "./src/app/stopwatch/stopwatch.component.ts");
+/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/fesm5/angular-fontawesome.js");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
+/* harmony import */ var _question_question_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./question/question.component */ "./src/app/question/question.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -115,6 +120,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["fas"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_7__["far"]);
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -122,16 +133,81 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _stopwatch_stopwatch_component__WEBPACK_IMPORTED_MODULE_3__["StopwatchComponent"]
+                _stopwatch_stopwatch_component__WEBPACK_IMPORTED_MODULE_3__["StopwatchComponent"],
+                _question_question_component__WEBPACK_IMPORTED_MODULE_8__["QuestionComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/question/question.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/question/question.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/question/question.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/question/question.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>\n    <ng-content></ng-content>\n</h2>\n\n<div class=\"content\">\n    <div class=\"columns is-mobile is-centered\">\n      <div class=\"column is-one-quarter \">\n          <a class=\"button is-large is-link is-rounded \">\n              <fa-icon  [icon]=\"['fas', 'stopwatch']\" size=\"2x\"></fa-icon>\n          </a>\n      </div>\n      <div class=\"column\">\n        <p class=\"is-size-3\t\" >Iniciar tempo</p>\n      </div>\n    </div>\n    <div class=\"columns is-mobile is-centered\">\n      <div class=\"column is-one-quarter\">\n          <a class=\"button is-large is-primary is-rounded\" (click)=\"stop()\">\n              <fa-icon  [icon]=\"['fas', 'pause']\" size=\"2x\"></fa-icon>  \n          </a>\n      </div>\n      <div class=\"column\">\n        <p class=\"is-size-3\t\" >Parar tempo</p>\n      </div>\n    </div>\n    <div class=\"columns is-mobile is-centered\">\n      <div class=\"column is-one-quarter\">\n          <a class=\"button is-large is-warning is-rounded\" (click)=\"turn()\">\n            <fa-icon  [icon]=\"['fas', 'history']\" size=\"2x\"></fa-icon>  <strong>+1</strong>\n          </a>\n      </div>\n      <div class=\"column\">\n        <p class=\"is-size-3\" >Marcar Volta e Iniciar novo Cronômetro</p>\n      </div>\n    </div>\n    <div class=\"columns is-mobile is-centered\">\n      <div class=\"column is-one-quarter\">\n          <a class=\"button is-large is-danger is-rounded\" (click)=\"reset()\">\n            '000\n          </a>\n      </div>\n      <div class=\"column\">\n        <p class=\"is-size-3\t\" >Zerar o Tempo</p>\n      </div>\n    </div>\n    <div class=\"columns is-mobile is-centered\">\n      <div class=\"column is-one-quarter\">\n          <a class=\"button is-large is-danger is-rounded\" (click)=\"clearAll()\">\n              <fa-icon  [icon]=\"['far', 'trash-alt']\" size=\"2x\"></fa-icon>\n          </a>\n      </div>\n      <div class=\"column\">\n        <p class=\"is-size-3\t\" >Zerar o Tempo e limpar tempos marcados</p>\n      </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/question/question.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/question/question.component.ts ***!
+  \************************************************/
+/*! exports provided: QuestionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionComponent", function() { return QuestionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var QuestionComponent = /** @class */ (function () {
+    function QuestionComponent() {
+    }
+    QuestionComponent.prototype.ngOnInit = function () {
+    };
+    QuestionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-question',
+            template: __webpack_require__(/*! ./question.component.html */ "./src/app/question/question.component.html"),
+            styles: [__webpack_require__(/*! ./question.component.css */ "./src/app/question/question.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], QuestionComponent);
+    return QuestionComponent;
 }());
 
 
@@ -156,7 +232,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>\n    <ng-content></ng-content>\n</h2>\n\n<div class=\"content\">\n<div><strong>Tempo: </strong>{{getElapsedMsFormated() }}</div>\n</div>\n<div class=\"content\">\n  <div class=\"buttons\">\n    <a class=\"button is-large is-link is-rounded \" (click)=\"start()\">Iniciar</a>\n    <a class=\"button is-large is-warning is-rounded\" (click)=\"turn()\">Volta</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"stop()\">Parar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"reset()\">Zerar</a>\n    <a class=\"button is-large is-danger is-rounded\" (click)=\"clearAll()\">Limpar Resultados</a>\n  </div>\n</div>\n<div class=\"content\">\n  <div class=\"card\">\n    <div *ngFor=\"let opt of getTurns(); index as i\" [attr.data-index]=\"i\" class=\"card-content\">\n      <p class=\"title\">\n        #{{i}} - {{opt}}\n      </p>\n    </div>\n  </div>\n</div>"
+module.exports = "<h2>\n    <ng-content></ng-content>\n</h2>\n\n<div class=\"content\">\n<div><strong>Tempo: </strong>{{getElapsedMsFormated() }}</div>\n</div>\n<div class=\"content\">\n  <div class=\"columns is-mobile is-centered\">\n    <div class=\"column\">\n        <a class=\"button is-large is-link is-rounded \" (click)=\"start()\">\n            <fa-icon  [icon]=\"['fas', 'stopwatch']\" size=\"2x\"></fa-icon>\n        </a>\n    </div>\n    <div class=\"column\">\n        <a class=\"button is-large is-primary is-rounded\" (click)=\"stop()\">\n            <fa-icon  [icon]=\"['fas', 'pause']\" size=\"2x\"></fa-icon>  \n        </a>\n    </div>\n    <div class=\"column\">\n      <a class=\"button is-large is-warning is-rounded\" (click)=\"turn()\">\n        <fa-icon  [icon]=\"['fas', 'history']\" size=\"2x\"></fa-icon>  <strong>+1</strong>\n      </a>\n    </div>\n  </div>\n  <div class=\"columns is-mobile is-centered\">\n      <div class=\"column\">\n        <a class=\"button is-large is-danger is-rounded\" (click)=\"reset()\">\n          '000\n        </a>\n      </div>\n      <div class=\"column\">\n        <a class=\"button is-large is-danger is-rounded\" (click)=\"clearAll()\">\n            <fa-icon  [icon]=\"['far', 'trash-alt']\" size=\"2x\"></fa-icon>\n        </a>\n      </div>\n      <div class=\"column\"></div>\n  </div>\n</div>\n<div class=\"content\">\n  <div class=\"card\">\n    <div *ngFor=\"let opt of getTurns(); index as i\" [attr.data-index]=\"i\" class=\"card-content\">\n      <p class=\"title\">\n        #{{i}} - {{opt}}\n      </p>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 

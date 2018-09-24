@@ -5,8 +5,9 @@
 
 <div class="tabs is-toggle is-fullwidth is-large">
     <ul>
-      <li [class.is-active]="tab == '01'" (click)="tab = '01'" ><a><strong>Chron 01 -</strong> {{ time01 }}</a></li>
-      <li [class.is-active]="tab == '02'" (click)="tab = '02'" ><a><strong>Chron 02 -</strong> {{ time02 }}</a></li>
+      <li [class.is-active]="tab == '01'" (click)="tab = '01'" ><a><strong><fa-icon  [icon]="['fas', 'stopwatch']" size="md"></fa-icon>01 -</strong> {{ time01 }}</a></li>
+      <li [class.is-active]="tab == '02'" (click)="tab = '02'" ><a><strong><fa-icon  [icon]="['fas', 'stopwatch']" size="md"></fa-icon>02 -</strong> {{ time02 }}</a></li>
+      <li [class.is-active]="tab == '03'" (click)="tab = '03'" ><a><strong><fa-icon  [icon]="['fas', 'question']" size="md"></fa-icon></strong></a></li>
     </ul>
   </div>
 
@@ -20,6 +21,12 @@
   <div [class.is-invisible]="tab != '02'" class="column position-fixed has-background-grey-lighter">
     <div class="content">
       <app-stopwatch (headerTab)="time02 = $event" > Cronometro #2 </app-stopwatch>
+    </div>
   </div>
+  
+  <div [class.is-invisible]="tab != '03'" class="column position-fixed has-background-grey-lighter">
+    <div class="content">
+        <app-question > Tutorial </app-question>
+    </div>
   </div>
 </div>
