@@ -1,32 +1,31 @@
 <ng-content></ng-content>
-
-<p class="is-size-2	"><strong>Tempo: </strong> {{getElapsedMsFormated() }}</p>
+<p class="is-size-5"><strong>Tempo: </strong> {{getElapsedMsFormated() }}</p>
 <div class="content">
   <div class="columns is-mobile is-centered">
     <div class="column">
-        <a class="button is-large is-link is-rounded " (click)="start()">
+        <a class="button is-link is-rounded " (click)="start()">
             <fa-icon  [icon]="['fas', 'stopwatch']" size="2x"></fa-icon>
         </a>
     </div>
     <div class="column">
-        <a class="button is-large is-primary is-rounded" (click)="stop()">
+        <a class="button is-primary is-rounded" (click)="stop()">
             <fa-icon  [icon]="['fas', 'pause']" size="2x"></fa-icon>  
         </a>
     </div>
     <div class="column">
-      <a class="button is-large is-warning is-rounded" (click)="turn()">
+      <a class="button is-warning is-rounded" (click)="turn()">
         <fa-icon  [icon]="['fas', 'history']" size="2x"></fa-icon>  <strong>+1</strong>
       </a>
     </div>
   </div>
   <div class="columns is-mobile is-centered">
       <div class="column">
-        <a class="button is-large is-danger is-rounded" (click)="reset()">
+        <a class="button is-danger is-rounded" (click)="reset()">
           '000
         </a>
       </div>
       <div class="column">
-        <a class="button is-large is-danger is-rounded" (click)="clearAll()">
+        <a class="button is-danger is-rounded" (click)="clearAll()">
             <fa-icon  [icon]="['far', 'trash-alt']" size="2x"></fa-icon>
         </a>
       </div>

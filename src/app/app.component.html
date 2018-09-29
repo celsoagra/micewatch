@@ -3,7 +3,7 @@
   <h1> {{ title }}! </h1>
 </div>
 
-<div class="tabs is-toggle is-fullwidth is-large">
+<div class="tabs is-toggle is-fullwidth">
     <ul>
       <li [class.is-active]="tab == '01'" (click)="tab = '01'" ><a><strong><fa-icon  [icon]="['fas', 'stopwatch']" size="md"></fa-icon>01 -</strong> {{ time01 }}</a></li>
       <li [class.is-active]="tab == '02'" (click)="tab = '02'" ><a><strong><fa-icon  [icon]="['fas', 'stopwatch']" size="md"></fa-icon>02 -</strong> {{ time02 }}</a></li>
@@ -14,13 +14,13 @@
 <div class="columns is-mobile is-centered">
   <div [class.is-invisible]="tab != '01'" class="column position-fixed has-background-light">
     <div class="content">
-      <app-stopwatch (headerTab)="time01 = $event" ><p class="has-text-link is-size-1	">Cronometro #1</p> </app-stopwatch>
+      <app-stopwatch (headerTab)="time01 = $event" ><p class="has-text-link is-size-4	has-text-weight-bold">Cronometro #1</p> </app-stopwatch>
   </div>
   </div>
 
   <div [class.is-invisible]="tab != '02'" class="column position-fixed has-background-info	">
     <div class="content">
-      <app-stopwatch (headerTab)="time02 = $event" > <p class="has-text-light is-size-1	">Cronometro #2</p> </app-stopwatch>
+      <app-stopwatch (headerTab)="time02 = $event" > <p class="has-text-light is-size-4 has-text-weight-bold">Cronometro #2</p> </app-stopwatch>
     </div>
   </div>
   
