@@ -12,15 +12,15 @@
   </div>
 
 <div class="columns is-mobile is-centered">
-  <div [class.is-invisible]="tab != '01'" class="column position-fixed has-background-grey-lighter">
+  <div [class.is-invisible]="tab != '01'" class="column position-fixed has-background-light">
     <div class="content">
-      <app-stopwatch (headerTab)="time01 = $event" > Cronometro #1 </app-stopwatch>
+      <app-stopwatch (headerTab)="time01 = $event" ><p class="has-text-link is-size-1	">Cronometro #1</p> </app-stopwatch>
   </div>
   </div>
 
-  <div [class.is-invisible]="tab != '02'" class="column position-fixed has-background-grey-lighter">
+  <div [class.is-invisible]="tab != '02'" class="column position-fixed has-background-info	">
     <div class="content">
-      <app-stopwatch (headerTab)="time02 = $event" > Cronometro #2 </app-stopwatch>
+      <app-stopwatch (headerTab)="time02 = $event" > <p class="has-text-light is-size-1	">Cronometro #2</p> </app-stopwatch>
     </div>
   </div>
   
